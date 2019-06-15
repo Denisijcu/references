@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pora Demo</title>
+    <title>360 References Codes</title>
 
     <link
       rel="stylesheet"
       href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
     />
+
+    <link rel="stylesheet" href="style.css" />
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
@@ -30,8 +32,13 @@
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <div class="container main">
       <h1>References Codes</h1>
+      <!-- Loader 1 -->
 
       <table id="example" class="display" style="width:100%">
         <thead>
@@ -57,6 +64,21 @@
           ajax: './mynewfile.txt'
         });
       });
+    </script>
+
+    <script>
+      const loader = document.querySelector('.loader');
+      const main = document.querySelector('.main');
+
+      function init() {
+        setTimeout(() => {
+          loader.style.opacity = 0;
+          loader.style.display = 'none';
+          main.style.display = 'block';
+          setTimeout(() => (main.style.opacity = 1), 50);
+        }, 4000);
+      }
+      init();
     </script>
   </body>
 </html>
